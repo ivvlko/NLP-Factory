@@ -1,0 +1,22 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.main-container{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.content{
+    width: 33%;
+    padding: 30px;
+}
+
+.content-data{
+    max-width: 100%;
+    word-wrap: break-word
+}

@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/news_topics_labels.css') }}">
 </head>
 <body>
-<h1>Item Type: {{ item.item_type }}</h1>
-<h2>Title: {{ item.title }}</h2>
-<h2>Text: {{ item.text }}</h2>
-{% if about %}
-    <h2>About: {{ about }}</h2>
-{% endif %}
+
+<section class="main-container">
+    {% for dict in object %}
+        <section class="content">
+            <h2 class="content-data">Raw text: {{ dict['text'] }}</h2>
+            <h2 class="content-data" style="color: darkred">ML prediction: {{ dict['pred'] }}</h2>
+        </section>
+
+    {% endfor %}
+</section>
+
+
 </body>
 </html>
