@@ -1,17 +1,13 @@
 from hackernews import HackerNews
 
-
 hn = HackerNews()
-DESIRED_ITEM_TYPES = ['comment', 'story', 'job']
 hn_obj = ''
-comment_about = ''
 
-items = hn.get_last(100)
+items = hn.new_stories(False, 500)
+
 
 for item in items:
-    if item.text and item.item_type in DESIRED_ITEM_TYPES:
+    if item.text and item.item_type == 'story':
         hn_obj = item
-        if item.item_type == 'comment':
-            parent_id = item.parent
-            comment_about = hn.get_item(parent_id)
         break
+
