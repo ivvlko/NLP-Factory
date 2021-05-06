@@ -1,0 +1,15 @@
+
+* {
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', cursive;
+}
+
+.navbar {
+    background-color: #233650 !important;
+}
+
+#navbarNavDropdown > ul > li> a{
+    color: lightskyblue;
+    font-size: 150%;
+    margin-left: 10px;
+}

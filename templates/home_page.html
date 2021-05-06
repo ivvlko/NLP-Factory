@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
-<h1>Flask Page</h1>
-<a href="/news_labels/">News Labelling</a>
-</body>
-</html>
+{% extends 'shared/base.html' %}
+{% block title %}
+NLP World
+{% endblock %}
+
+
+{% block content %}
+
+    <h1 class="title-header">Natural Language Processing World</h1>
+
+{% endblock %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}

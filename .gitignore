@@ -6,6 +6,8 @@ __pycache__/
 .Idea
 migrations
 .migrations
+applications/hackernews_nlp/ai_handling/ai_models/gru/gru_one_layer_one_dense/saved_model/variables/variables.data-00000-of-00001
+applications/hackernews_nlp/ai_handling/ai_models/*
 
 # C extensions
 *.so

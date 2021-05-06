@@ -1,22 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends 'shared/base.html' %}
+{% block title %}
+    HackerNews
+{% endblock %}
+
+{% block custom_css %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/news_topics_labels.css') }}">
-</head>
-<body>
-
-<section class="main-container">
-    {% for dict in object %}
-        <section class="content">
-            <h2 class="content-data">Raw text: {{ dict['text'] }}</h2>
-            <h2 class="content-data" style="color: darkred">ML prediction: {{ dict['pred'] }}</h2>
-        </section>
-
-    {% endfor %}
-</section>
+{% endblock %}
 
 
-</body>
-</html>
+{% block content %}
+    <h1>Latest HackerNews</h1>
+    <h2>Updates real time</h2>
+    <section class="main-container">
+
+        {% for dict in object %}
+            <section class="content">
+                <p class="content-data">Raw text: {{ dict['text']|truncate(200) }}</p>
+                <p class="content-data" style="color: wheat">Naive Bayes label: {{ dict['pred'] }}</p>
+                <p class="content-data" style="color: lightpink">RNN label: {{ dict['nn_preds'] }}</p>
+            </section>
+
+        {% endfor %}
+    </section>
+
+
+{% endblock %}
+
+

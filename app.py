@@ -14,7 +14,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql://" \
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-from db_models.hackerNewsModels import CommentSentimentAndTopic
 migrate = Migrate(app, db)
 
 
@@ -25,4 +24,4 @@ app.register_blueprint(news_topics_labelling)
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
