@@ -33,10 +33,9 @@ def news_labels_page():
     """
     Adding everything to DB if its new
     """
-    last_6 = db.session.query(TopicLabel.raw_txt).order_by(TopicLabel.id.desc()).limit(6).all()
-    last_6 = [x[0] for x in last_6]
     for i in range(len(news_content)):
-        if news_content[i] not in last_6:
+        q = db.session.query(TopicLabel).filter(TopicLabel.raw_txt == news_content[i])
+        if not db.session.query(q.exists()).scalar():
             topic_label = TopicLabel(raw_txt=news_content[i],
                                      standard_ml_label=nb_final_labels[i],
                                      neural_net_label=nn_predictions[i])
