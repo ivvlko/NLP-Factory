@@ -8,3 +8,4 @@ class TopicLabel(db.Model):
     raw_txt = db.Column(db.String())
     standard_ml_label = db.Column(db.String())
     neural_net_label = db.Column(db.String())
+    actual_label = db.Column(db.String())
