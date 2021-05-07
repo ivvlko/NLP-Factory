@@ -18,7 +18,7 @@
             <section class="content">
                 <p class="content-data">Raw text: {{ dict['text']|truncate(2000) }}</p>
                 <p class="content-data" style="color: wheat">Naive Bayes label: {{ dict['pred'] }}</p>
-                <p class="content-data" style="color: lightpink">RNN label: {{ dict['nn_preds'] }}</p>
+{#                <p class="content-data" style="color: lightpink">RNN label: {{ dict['nn_preds'] }}</p>#}
             </section>
 
         {% endfor %}

@@ -21,12 +21,13 @@ def news_labels_page():
     cleaned_text = clean_text(news_content)
     cleaned_from_stopwords = remove_stopwords(cleaned_text)
     nb_final_labels = label_news(cleaned_from_stopwords, naive_bayes_predictor)
-    tokenized_text = text_to_sequence(cleaned_text, tokenizer)
-    nn_predictions = gru_predictor.predict(tokenized_text)
-    nn_predictions = get_labels(nn_predictions)
+    # tokenized_text = text_to_sequence(cleaned_text, tokenizer)
+    # nn_predictions = gru_predictor.predict(tokenized_text)
+    # nn_predictions = get_labels(nn_predictions)
     list_of_dicts = [{'text': news_content[i],
                       'pred': nb_final_labels[i],
-                      'nn_preds': nn_predictions[i]} for i in range(len(nb_final_labels))] # Object to be displayed in html template
+                      # 'nn_preds': nn_predictions[i]
+                      } for i in range(len(nb_final_labels))] # Object to be displayed in html template
 
     """
     Adding everything to DB if its new
@@ -36,7 +37,8 @@ def news_labels_page():
         if not db.session.query(q.exists()).scalar():
             topic_label = TopicLabel(raw_txt=news_content[i],
                                      standard_ml_label=nb_final_labels[i],
-                                     neural_net_label=nn_predictions[i])
+                                     # neural_net_label=nn_predictions[i]
+                                     )
 
             db.session.add(topic_label)
             db.session.commit()
