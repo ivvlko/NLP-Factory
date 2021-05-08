@@ -57,13 +57,13 @@ h1, h2 {
 
 .refresh-btn {
     margin-top: 10px;
-    margin-left: 45%;
-    background-color: darkred;
-    color: #233650;
-    padding: 20px;
-    font-size: 120%;
+    margin-left: 47%;
+    background-color: #FF7A79;
+    color: whitesmoke;
+    padding: 15px;
+    font-size: 110%;
     border: none;
-    border-radius: 12px;
+    border-radius: 30px;
 
 }
 
@@ -72,14 +72,19 @@ h1, h2 {
     opacity: 0.9;
 }
 
-.subnav{
+.subnav {
     display: flex;
     flex-flow: row wrap;
 }
 
-.subnav-item{
+.subnav-item {
     padding: 10px;
     list-style: none;
     font-size: 150%;
+
+}
+
+.categories-link {
+    color: #FF7A79;
 
 }
