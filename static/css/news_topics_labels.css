@@ -6,6 +6,10 @@ html {
     box-sizing: inherit;
 }
 
+body {
+    background-color: #252169;
+}
+
 .main-container {
     display: flex;
     flex-flow: row wrap;
@@ -18,7 +22,7 @@ html {
     padding: 30px;
 }
 
-.content-data {
+.content-data, .content-data-txt {
     max-width: 100%;
     color: white;
     word-wrap: break-word;
@@ -35,17 +39,47 @@ html {
         width: 100%;
     }
 
-    .content-data {
+    .content-data, .content-data-txt {
         max-width: 100%;
         word-wrap: break-word
     }
 }
 
-h1, h2{
+h1, h2 {
     text-align: center;
     color: whitesmoke;
     font-size: 200%;
     background-color: #03295F;
-    margin: 0;
+    margin-top: 10px;
     padding: 0;
+}
+
+
+.refresh-btn {
+    margin-top: 10px;
+    margin-left: 45%;
+    background-color: darkred;
+    color: #233650;
+    padding: 20px;
+    font-size: 120%;
+    border: none;
+    border-radius: 12px;
+
+}
+
+.refresh-btn:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.subnav{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.subnav-item{
+    padding: 10px;
+    list-style: none;
+    font-size: 150%;
+
 }

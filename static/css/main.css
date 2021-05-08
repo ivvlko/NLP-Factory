@@ -13,3 +13,8 @@
     font-size: 150%;
     margin-left: 10px;
 }
+
+#navbarNavDropdown > ul > li> a:hover{
+    cursor: pointer;
+    opacity: 0.9;
+}

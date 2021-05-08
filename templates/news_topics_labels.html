@@ -9,21 +9,57 @@
 
 
 {% block content %}
-    <meta http-equiv="refresh" content="10">
-    <h1>Latest HackerNews</h1>
-    <h2>Updates real time</h2>
+
+    <ul class="subnav">
+        <li class="subnav-item">
+            <a class="categories-link" href="#">AI/Data Science</a>
+        </li>
+
+        <li class="subnav-item">
+            <a class="categories-link" href="#">web/mobile</a>
+        </li>
+
+        <li class="subnav-item">
+           <a class="categories-link" href="#">finance</a>
+        </li>
+
+        <li class="subnav-item">
+            <a class="categories-link" href="#">devops/networking</a>
+        </li>
+
+        <li class="subnav-item">
+            <a class="categories-link" href="#">OS</a>
+        </li>
+
+        <li class="subnav-item">
+            <a class="categories-link" href="#">job/career</a>
+        </li>
+
+        <li class="subnav-item">
+             <a class="categories-link" href="#">general</a>
+        </li>
+
+    </ul>
+
+    <h1>Latest from HackerNews</h1>
+    <button class="refresh-btn">Update</button>
+
     <section class="main-container">
 
-        {% for dict in object %}
+
+        {% for dict in object[:24] %}
             <section class="content">
-                <p class="content-data">Raw text: {{ dict['text']|truncate(2000) }}</p>
+                <p class="content-data-txt">{{ dict['text']|truncate(2000) }}</p>
                 <p class="content-data" style="color: wheat">Naive Bayes label: {{ dict['pred'] }}</p>
-{#                <p class="content-data" style="color: lightpink">RNN label: {{ dict['nn_preds'] }}</p>#}
             </section>
 
         {% endfor %}
+
+
     </section>
 
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/api_connector.js') }}"></script>
 
 {% endblock %}
 
