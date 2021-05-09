@@ -9,8 +9,8 @@ from nltk.corpus import stopwords
 
 # Constants
 MAX_NUM_WORDS = 400
-MAPPING_DICT = {0: 'AI/Data Science', 1: 'devops/networking', 2: 'finance', 3: 'general', 4: 'job/career', 5: 'OS',
-                6: 'web/mobile'}
+MAPPING_DICT = {0: 'AI/Data Science', 1: 'devops/OS', 2: 'finance', 3: 'general', 4: 'job/career',
+                5: 'web/mobile'}
 
 nb_path = 'applications/hackernews_nlp/ai_handling/ai_models/nb_topic_classifier.pickle'
 nn_path = 'applications/hackernews_nlp/ai_handling/ai_models/gru/gru_one_layer_one_dense/saved_model/'
