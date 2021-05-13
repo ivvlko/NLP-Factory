@@ -14,7 +14,7 @@ function loadJsonData(e) {
         .then(data => {
             let latestSix = [];
             for (let i = 0; i < data.length; i++) {
-                if (latestSix.length === 6) {
+                if (latestSix.length === 20) {
                     break
                 }
                 if (data[i].standard_ml_label === target) {
@@ -32,7 +32,7 @@ function changeTemplateDynamically(d) {
         let current = `
             <section class="content">
                     <div class="content-data-txt">${d[i].raw_txt}</div>
-                    <p class="content-data" style="color: wheat">Naive Bayes label: ${d[i].standard_ml_label}</p>
+                    <p class="content-data" style="color: wheat">ML label: ${d[i].standard_ml_label}</p>
             </section>`
         result += current;
     }

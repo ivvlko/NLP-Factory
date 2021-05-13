@@ -46,8 +46,8 @@
 
         {% for dict in object[:24] %}
             <section class="content">
-                <p class="content-data-txt">{{ dict['text']|truncate(2000) }}</p>
-                <p class="content-data" style="color: wheat">Naive Bayes label: {{ dict['pred'] }}</p>
+                <p class="content-data-txt">{{ dict['text'] }}</p>
+                <p class="content-data" style="color: wheat">ML label: {{ dict['pred'] }}</p>
             </section>
 
         {% endfor %}
