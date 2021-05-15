@@ -1,9 +1,7 @@
-from applications.hn_dashboard.sql import get_latest_data
+from applications.hn_dashboard.sql import get_latest_data_distribution
 
 
-def calculate_accuracy():
-    df = get_latest_data()
-    accuracy = round(
-        (df[df['standard_ml_label'] == df['actual_label']].shape[0] / df[~df['actual_label'].isnull()].shape[0] * 100),
-        2)
-    return accuracy
+def get_distribution_of_labels(start, end):
+    df = get_latest_data_distribution(start, end)
+    dist = df['standard_ml_label'].value_counts()
+    return dist

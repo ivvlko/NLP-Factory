@@ -13,7 +13,7 @@ MAPPING_DICT = {0: 'AI/Data Science', 1: 'devops/OS', 2: 'finance', 3: 'general'
                 5: 'web/mobile'}
 
 nb_path = 'applications/hackernews_nlp/ai_handling/ai_models/nb_topic_classifier.pickle'
-nn_path = 'applications/hackernews_nlp/ai_handling/ai_models/gru/gru_one_layer_one_dense/saved_model/'
+nn_path = 'applications/hackernews_nlp/ai_handling/ai_models/initial_lstm/initial_lstm/saved_model/'
 tok_path = 'applications/hackernews_nlp/ai_handling/ai_models/tokenizer.pickle'
 
 
