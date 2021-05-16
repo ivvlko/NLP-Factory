@@ -1,13 +1,26 @@
-body{
+body {
     background-color: black;
     font-family: 'Helvetica Neue', cursive;
     color: skyblue;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.heading-h{
+#wrapper{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    margin-top: 50px;
+}
+
+#wordscloud_container{
+    padding-left: 10px;
+}
+
+.heading-h {
     text-align: center;
 }
 
-#distribution_container{
-    margin: 50px;
+#dropdown_words{
+    color: darkred;
 }

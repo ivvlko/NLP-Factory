@@ -62,6 +62,8 @@ def clean_text(series):
         text = re.sub('\W', ' ', text)
         text = re.sub('\s+', ' ', text)
         text = re.sub(r'\d', '', text)
+        text = re.sub(r'quot', '', text)
+        text = re.sub(r'x27', '', text)
         text = text.strip(' ')
         cleaned_txt.append(text)
     return cleaned_txt
