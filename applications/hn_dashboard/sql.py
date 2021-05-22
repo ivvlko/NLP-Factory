@@ -22,7 +22,7 @@ def get_latest_text(topic):
     SELECT raw_txt 
     FROM hn_topic_labelling
     WHERE standard_ml_label = '{topic}'
-    ORDER BY date DESC
+    ORDER BY id DESC
     LIMIT 50;
     '''
 

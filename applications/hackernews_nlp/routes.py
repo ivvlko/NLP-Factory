@@ -14,7 +14,7 @@ def news_labels_page():
     """
     items = get_latest_news()
     naive_bayes_predictor, gru_predictor, tokenizer = loaded_models
-    news_content = [item.text for item in items if item.text is not None and len(item.text.split(' ')) > 50]
+    news_content = [item.text for item in items if item.text is not None and len(item.text.split(' ')) > 20]
     """
     Using preprocessing functions from predictors.py for both Naive Bayes and RNN
     """

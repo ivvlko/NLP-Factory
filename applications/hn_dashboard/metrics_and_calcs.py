@@ -1,6 +1,5 @@
 from applications.hn_dashboard.sql import get_latest_data_distribution, get_latest_text
-from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
-from applications.hackernews_nlp.ai_handling.predictors import clean_text
+from wordcloud import WordCloud, STOPWORDS
 
 
 def get_distribution_of_labels(start, end):
