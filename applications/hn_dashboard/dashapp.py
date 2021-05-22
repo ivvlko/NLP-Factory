@@ -1,6 +1,7 @@
 from app import app
 import dash
 from flask import Blueprint
+import dash_bootstrap_components as dbc
 
 hn_dashboard = Blueprint('hn_dashboard', __name__, template_folder='templates')
 
@@ -10,7 +11,8 @@ dashApp = dash.Dash(
     __name__,
     server=server,
     url_base_pathname='/hn_dashboard/',
-    assets_folder='assets'
+    assets_folder='assets',
+    external_stylesheets=[dbc.themes.BOOTSTRAP]
 )
 dashApp.config['suppress_callback_exceptions']=True
 dashApp.title = 'HN Dashboard'

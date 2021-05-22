@@ -6,21 +6,23 @@ body {
     margin: 0 auto;
 }
 
-#wrapper{
-    display: flex;
-    flex-flow: row wrap;
-    width: 100%;
-    margin-top: 50px;
-}
-
-#wordscloud_container{
-    padding-left: 10px;
-}
-
-.heading-h {
+#heading{
+    margin-bottom: 150px;
     text-align: center;
+}
+
+a{
+        font-size: 200%;
+}
+
+#range-label{
+    margin-right: 10px;
 }
 
 #dropdown_words{
     color: darkred;
+}
+
+#wordscloud_container{
+    margin-top: -37px;
 }

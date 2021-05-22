@@ -11,7 +11,7 @@ import plotly.express as px
 def update_distributions(start, end):
     distribution = get_distribution_of_labels(start, end)
     fig = px.bar(distribution, x=distribution.index, y=distribution, color=distribution.index)
-    fig.update_layout(width=600, height=450, plot_bgcolor='black')
+    fig.update_layout(width=700, height=650, plot_bgcolor='black')
     fig.update_layout(title = f'Total per label for {start[:10]} - {end[:10]}', paper_bgcolor='black', title_font_color="crimson")
     fig.update_xaxes(title='Label', color="crimson")
     fig.update_yaxes(title='Count', color="crimson")
@@ -25,7 +25,7 @@ def update_distributions(start, end):
 def update_dropdown(val):
     pic = get_wordcloud(val)
     fig = px.imshow(pic)
-    fig.update_layout(width=600, height=450, plot_bgcolor='black')
+    fig.update_layout(width=700, height=650, plot_bgcolor='black')
     fig.update_layout(title=f'Most frequent words in {val}', paper_bgcolor='black',
                       title_font_color="crimson")
     fig.update_xaxes(visible=False, showticklabels=False)
