@@ -23,7 +23,7 @@ def get_latest_text(topic):
     FROM hn_topic_labelling
     WHERE standard_ml_label = '{topic}'
     ORDER BY id DESC
-    LIMIT 50;
+    LIMIT 10;
     '''
 
     conn = create_engine(
