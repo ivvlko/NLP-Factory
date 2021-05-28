@@ -2,7 +2,8 @@ from flask import render_template, Blueprint
 from applications.hackernews_nlp.api_connector import get_latest_news
 from applications.hackernews_nlp.ai_handling.predictors import loaded_models, text_to_sequence, get_labels, clean_text, remove_stopwords, label_news
 from db_models.hackerNewsModels import TopicLabel
-from app import db
+from app import db, login_manager
+from flask_login import login_required, current_user
 from datetime import datetime
 news_topics_labelling = Blueprint('hackernews_nlp', __name__, template_folder='templates')
 
