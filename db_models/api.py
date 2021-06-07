@@ -6,8 +6,10 @@ api = Api(app)
 
 parser = reqparse.RequestParser()
 parser.add_argument('raw_txt', type=str, help='Raw Text of the news')
+parser.add_argument('title', type=str, help='Title of the news')
 parser.add_argument('standard_ml_label', type=str, help='NB prediction of the label')
 resource_fields = {
+    'title': fields.String,
     'raw_txt': fields.String,
     'standard_ml_label': fields.String,
 }

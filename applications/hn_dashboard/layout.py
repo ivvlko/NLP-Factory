@@ -19,7 +19,7 @@ layout = html.Div(children=[
                     html.Label(id='range-label', htmlFor='date_range', children=[html.H3('Date Range:  ')]),
                     dcc.DatePickerRange(
                         id='date_range',
-                        start_date=datetime.today() - dt.timedelta(days=7),
+                        start_date=datetime.today() - dt.timedelta(days=3),
                         end_date=datetime.today(),
                     ),
 

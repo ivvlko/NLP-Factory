@@ -31,7 +31,9 @@ function changeTemplateDynamically(d) {
     for (let i = 0; i < d.length; i++) {
         let current = `
             <section class="content">
+                    <div class="content-data-title" style="color: pink; font-size: 150%">${d[i].title}</div>
                     <div class="content-data-txt">${d[i].raw_txt}</div>
+                    
                     <p class="content-data" style="color: wheat">ML label: ${d[i].standard_ml_label}</p>
             </section>`
         result += current;

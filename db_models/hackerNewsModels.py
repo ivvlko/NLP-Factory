@@ -6,6 +6,7 @@ class TopicLabel(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.Date())
+    title = db.Column(db.String())
     raw_txt = db.Column(db.String())
     standard_ml_label = db.Column(db.String())
     neural_net_label = db.Column(db.String())
