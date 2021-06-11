@@ -3,24 +3,26 @@ from applications.hackernews_nlp.api_connector import get_latest_news
 from applications.hackernews_nlp.ai_handling.predictors import loaded_models, text_to_sequence, get_labels, clean_text, remove_stopwords, label_news
 from db_models.hackerNewsModels import TopicLabel
 from app import db
-from flask_login import login_required, current_user
 from datetime import datetime
+from apscheduler.schedulers.background import BackgroundScheduler
+
 news_topics_labelling = Blueprint('hackernews_nlp', __name__, template_folder='templates')
 
 
 @news_topics_labelling.route('/news_labels/')
 def news_labels_page():
+
     """
     Loading HackerNews items objects on refresh
     """
     items = get_latest_news()
     naive_bayes_predictor, gru_predictor, tokenizer = loaded_models
-    news_content = [[item.text, item.title] for item in items if item.text is not None and item.title and len(item.text.split(' ')) > 20]
+    news_content = [[item.text, item.title] for item in items if item.text is not None]
     """
     Using preprocessing functions from predictors.py for both Naive Bayes and RNN
     """
     news_txt = [x[0] for x in news_content]
-    titles = [x[1] for x in news_content]
+    titles = [x[1] if x else 'No Title' for x in news_content]
     cleaned_text = clean_text(news_txt)
     cleaned_from_stopwords = remove_stopwords(cleaned_text)
     nb_final_labels = label_news(cleaned_from_stopwords, naive_bayes_predictor)
@@ -48,5 +50,12 @@ def news_labels_page():
 
             db.session.add(topic_label)
             db.session.commit()
+    try:
+        return render_template('news_topics_labels.html', object=list_of_dicts)
+    except Exception as e:
+        print(f'Scheduler execution successful at {datetime.now()}')
 
-    return render_template('news_topics_labels.html', object=list_of_dicts)
+
+scheduler = BackgroundScheduler()
+scheduler.add_job(func=news_labels_page, trigger='interval', seconds=60)
+scheduler.start()

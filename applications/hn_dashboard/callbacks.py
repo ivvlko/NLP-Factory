@@ -20,9 +20,9 @@ def update_distributions(start, end):
         'AI/Data Science': 'white'
     })
     fig.update_layout(width=700, height=650, plot_bgcolor='black')
-    fig.update_layout(title = f'Total per label for {start[:10]} - {end[:10]}', paper_bgcolor='black', title_font_color="crimson")
-    fig.update_xaxes(title='Label', color="crimson")
-    fig.update_yaxes(title='Count', color="crimson")
+    fig.update_layout(title = f'Total per label for {start[:10]} - {end[:10]}', paper_bgcolor='black', title_font_color="skyblue")
+    fig.update_xaxes(title='Label', color="skyblue")
+    fig.update_yaxes(title='Count', color="skyblue")
     return fig
 
 
@@ -35,7 +35,7 @@ def update_dropdown(val):
     fig = px.imshow(pic)
     fig.update_layout(width=700, height=650, plot_bgcolor='black')
     fig.update_layout(title=f'Most frequent words in {val}', paper_bgcolor='black',
-                      title_font_color="crimson")
+                      title_font_color="skyblue")
     fig.update_xaxes(visible=False, showticklabels=False)
     fig.update_yaxes(visible=False, showticklabels=False)
     return fig
