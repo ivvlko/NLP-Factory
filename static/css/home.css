@@ -9,20 +9,6 @@
 
 }
 
-.content-displayer{
-    color: whitesmoke;
-    display: flex;
-    flex-flow: column wrap;
-}
-
-.content-displayer h3{
-    margin-left: 25px;
-}
-
-.content-li{
-    font-size: 120%;
-}
-
 body{
     background-image: url("/static/pics/nlp.png");
     background-size: cover;
@@ -31,9 +17,6 @@ body{
 }
 
 .models{
-    position: absolute;
-    right: 0;
-    top: 130px;
+    margin-left: 20px;
     color: whitesmoke;
-    margin-right: 20px;
 }

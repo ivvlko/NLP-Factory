@@ -12,17 +12,16 @@ function loadJsonData(e) {
     fetch(base_url)
         .then(res => res.json())
         .then(data => {
-            let latestSix = [];
+            let latestTwentyOne = [];
             for (let i = 0; i < data.length; i++) {
-                if (latestSix.length === 20) {
+                if (latestTwentyOne.length === 21) {
                     break
                 }
                 if (data[i].standard_ml_label === target) {
-                    latestSix.push(data[i]);
+                    latestTwentyOne.push(data[i]);
                 }
             }
-            let finalTemplate = changeTemplateDynamically(latestSix);
-            dynamicTag.innerHTML = finalTemplate;
+            dynamicTag.innerHTML = changeTemplateDynamically(latestTwentyOne);
         })
 }
 

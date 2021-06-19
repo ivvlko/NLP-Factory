@@ -75,6 +75,7 @@ h1, h2 {
 .subnav {
     display: flex;
     flex-flow: row wrap;
+    text-align: center;
 }
 
 .subnav-item {

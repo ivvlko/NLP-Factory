@@ -1,11 +1,9 @@
 import re
 import nltk
 import pickle
-import tensorflow as tf
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 nltk.download('stopwords')
 from nltk.corpus import stopwords
-
 
 # Constants
 MAX_NUM_WORDS = 400
@@ -13,19 +11,17 @@ MAPPING_DICT = {0: 'AI/Data Science', 1: 'devops/OS', 2: 'finance', 3: 'general'
                 5: 'web/mobile'}
 
 nb_path = 'applications/hackernews_nlp/ai_handling/ai_models/nb_topic_classifier.pickle'
-nn_path = 'applications/hackernews_nlp/ai_handling/ai_models/initial_lstm/initial_lstm/saved_model/'
 tok_path = 'applications/hackernews_nlp/ai_handling/ai_models/tokenizer.pickle'
 
 
-def load_models(nb_path, nn_path, tokenizer_path):
+def load_models(nb_path, tokenizer_path):
     opener = open(nb_path, 'rb')
     nb = pickle.load(opener)
     opener.close()
     opener = open(tokenizer_path, 'rb')
     tok = pickle.load(opener)
     opener.close()
-    nn = tf.keras.models.load_model(nn_path)
-    return nb, nn, tok
+    return nb, tok
 
 
 def text_to_sequence(text, tokenizer):
@@ -34,7 +30,7 @@ def text_to_sequence(text, tokenizer):
     return tokenized_text
 
 
-loaded_models = load_models(nb_path,nn_path,tok_path)
+loaded_models = load_models(nb_path, tok_path)
 
 
 def get_labels(preds):
