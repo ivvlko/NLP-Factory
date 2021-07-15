@@ -2,7 +2,7 @@ from applications.hn_dashboard.dashapp import dashApp
 from dash.dependencies import Input, Output
 from applications.hn_dashboard.metrics_and_calcs import get_distribution_of_labels, get_wordcloud
 import plotly.express as px
-from plotly.subplots import make_subplots
+from applications.hn_dashboard.sql import calculate_accuracy
 
 
 @dashApp.callback(
@@ -31,4 +31,20 @@ def update_dropdown(val):
                       title_font_color="skyblue")
     fig.update_xaxes(visible=False, showticklabels=False)
     fig.update_yaxes(visible=False, showticklabels=False)
+    return fig
+
+
+@dashApp.callback(
+    Output(component_id='time_series_accuracy', component_property='figure'),
+    Input('dropdown_words', 'value')
+)
+def update_accuracy(hidden_trigger):
+    data = calculate_accuracy()
+    fig = px.line(data, x=data['date'], y=data['accuracy'], hover_data=["date", "accuracy"])
+    fig.update_layout(plot_bgcolor='black', showlegend=False)
+    fig.update_layout(title=f'Accuracy across time', paper_bgcolor='black',
+                      title_font_color="skyblue")
+    fig.update_traces(mode="markers+lines")
+    fig.update_xaxes(showgrid=False,  color="skyblue")
+    fig.update_yaxes(title='Accuracy %', color="skyblue", showgrid=False)
     return fig

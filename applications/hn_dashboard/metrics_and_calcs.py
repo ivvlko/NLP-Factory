@@ -16,3 +16,4 @@ def get_wordcloud(topic):
     raw_txt = (" ").join([df['raw_txt'][i] for i in range(df.shape[0])])
     wordcloud_img = WordCloud(stopwords=stopwords).generate(raw_txt)
     return wordcloud_img
+

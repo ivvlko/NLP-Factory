@@ -10,9 +10,9 @@ def get_latest_data_distribution(start, end):
     WHERE CAST(date as date) BETWEEN '{start[:10]}' and '{end[:10]}';
     '''
 
-    conn = create_engine(
+    connection = create_engine(
         f"postgresql://{os.environ.get('DB_USER')}:{os.environ.get('DB_PASS')}@localhost:{os.environ.get('DB_PORT')}/{os.environ.get('DB_NAME')}")
-    df = pd.read_sql_query(distribution_query, con=conn)
+    df = pd.read_sql_query(distribution_query, con=connection)
     return df
 
 
@@ -26,7 +26,27 @@ def get_latest_text(topic):
     LIMIT 3;
     '''
 
-    conn = create_engine(
+    connection = create_engine(
         f"postgresql://{os.environ.get('DB_USER')}:{os.environ.get('DB_PASS')}@localhost:{os.environ.get('DB_PORT')}/{os.environ.get('DB_NAME')}")
-    df = pd.read_sql_query(words_query, con=conn)
+    df = pd.read_sql_query(words_query, con=connection)
     return df
+
+
+def calculate_accuracy():
+
+    get_correct_answers_by_date = f'''
+    
+    SELECT date, 
+    COUNT(actual_label) FILTER (WHERE actual_label = standard_ml_label) as correct, 
+    COUNT(actual_label) FILTER (WHERE actual_label IS NOT NULL) as total_reviewed
+    FROM hn_topic_labelling 
+    GROUP BY 1
+    ORDER BY 1;
+    '''
+
+    connection = create_engine(
+        f"postgresql://{os.environ.get('DB_USER')}:{os.environ.get('DB_PASS')}@localhost:{os.environ.get('DB_PORT')}/{os.environ.get('DB_NAME')}")
+    df = pd.read_sql_query(get_correct_answers_by_date, con=connection)
+    df['accuracy'] = round((df['correct'] / df['total_reviewed'] * 100), 2)
+    return df
+

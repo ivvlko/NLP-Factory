@@ -1,4 +1,4 @@
-const base_url = 'http://127.0.0.1:5000/api/';
+const base_url = 'http://127.0.0.1:5000/hn_api/';
 const dynamicTag = document.getElementsByClassName('main-container')[0];
 const btns = document.getElementsByClassName('categories-link');
 

@@ -22,4 +22,4 @@ class HnLabelledNews(Resource):
         return results
 
 
-api.add_resource(HnLabelledNews, "/api/")
+api.add_resource(HnLabelledNews, "/hn_api/")

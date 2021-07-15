@@ -8,7 +8,7 @@ import datetime as dt
 layout = html.Div(children=[
     dbc.Row(id='heading', children=[
         dbc.Col(html.A('Home', id='go_back_home', href='/'), width=2),
-        dbc.Col(html.H1(f'HackerNews App Summary Dashboard', className='heading-h'), width=10)
+        dbc.Col(html.H1(f'HackerNews App Summary Dashboard', className='heading-h'), width=10, style={'margin-left': '-120px'})
     ]),
 
     dbc.Row([
@@ -41,5 +41,10 @@ layout = html.Div(children=[
                              ),
                 dcc.Loading(dcc.Graph(id='wordcloud'))
             ])], width=6)]),
+
+        dbc.Row(id='time_series_accuracy_container', children=[
+            dbc.Col(dcc.Loading(dcc.Graph(id='time_series_accuracy')), width=12),
+
+    ]),
 
 ])
