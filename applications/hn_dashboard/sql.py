@@ -50,3 +50,15 @@ def calculate_accuracy():
     df['accuracy'] = round((df['correct'] / df['total_reviewed'] * 100), 2)
     return df
 
+
+def get_data_for_confusion_matrix():
+    query = '''
+    
+    SELECT *
+    FROM public.hn_topic_labelling where actual_label IS NOT NULL;
+    '''
+
+    connection = create_engine(
+        f"postgresql://{os.environ.get('DB_USER')}:{os.environ.get('DB_PASS')}@localhost:{os.environ.get('DB_PORT')}/{os.environ.get('DB_NAME')}")
+    df = pd.read_sql_query(query, con=connection)
+    return df

@@ -17,3 +17,12 @@ def get_wordcloud(topic):
     wordcloud_img = WordCloud(stopwords=stopwords).generate(raw_txt)
     return wordcloud_img
 
+
+def create_manually_confusion_matrix_for_plotly(dataframe):
+    labels = ['AI/Data Science', 'web/mobile', 'devops/OS', 'general', 'finance', 'job/career']
+    final_data = {}
+    for label in labels:
+        filtered_data = dataframe[dataframe['actual_label'] == label]
+        label_count = [filtered_data[filtered_data['standard_ml_label'] == x].shape[0] if x else 0 for x in labels]
+        final_data[label] = label_count
+    return final_data

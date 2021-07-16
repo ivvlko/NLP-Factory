@@ -43,7 +43,8 @@ layout = html.Div(children=[
             ])], width=6)]),
 
         dbc.Row(id='time_series_accuracy_container', children=[
-            dbc.Col(dcc.Loading(dcc.Graph(id='time_series_accuracy')), width=12),
+            dbc.Col(dcc.Loading(dcc.Graph(id='time_series_accuracy')), width=6),
+            dbc.Col(dcc.Loading(dcc.Graph(id='confusion_matrix')), width=6),
 
     ]),
 
