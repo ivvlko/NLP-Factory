@@ -1,0 +1,31 @@
+{% extends 'shared/base.html' %}
+
+{% block title %}
+    Twitter Stream
+{% endblock %}
+
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/news_topics_labels.css') }}">
+{% endblock %}
+
+{% block content %}
+
+
+<form method="POST" class="search-keyword-form">
+    <label for="text" style="color: wheat">Search Keyword</label>
+    <input name="text" id="text">
+    <input type="submit">
+</form>
+
+
+<section class="main-container">
+
+
+    {% for tweet in tweets %}
+    <h1>{{tweet}}</h1>
+    {% endfor %}
+</section>
+
+
+{% endblock %}
