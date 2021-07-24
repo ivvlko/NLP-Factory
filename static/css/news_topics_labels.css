@@ -93,3 +93,7 @@ h1, h2 {
 .search-keyword-form{
  text-align: center;
 }
+
+.current-tweet{
+border-bottom: 5px solid royalblue;
+}
