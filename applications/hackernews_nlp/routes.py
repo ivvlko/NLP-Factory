@@ -16,7 +16,7 @@ def news_labels_page():
 
 def populate_api():
     items = get_latest_news()
-    naive_bayes_predictor, tokenizer = loaded_models
+    logistic_regression_predictor = loaded_models
     news_content = [[item.text, item.title, item.url] for item in items if item.text is not None]
     """
     Using preprocessing functions from predictors.py for both Naive Bayes and RNN
@@ -25,11 +25,11 @@ def populate_api():
     titles = [x[1] if x else 'No Title' for x in news_content]
     cleaned_text = clean_text(news_txt)
     cleaned_from_stopwords = remove_stopwords(cleaned_text)
-    nb_final_labels = label_news(cleaned_from_stopwords, naive_bayes_predictor)
+    lr_final_labels = label_news(cleaned_from_stopwords, logistic_regression_predictor)
     list_of_dicts = [{'text': news_txt[i],
                       'title': titles[i],
-                      'pred': nb_final_labels[i]
-                      } for i in range(len(nb_final_labels))] # Object to be displayed in html template
+                      'pred': lr_final_labels[i]
+                      } for i in range(len(lr_final_labels))] # Object to be displayed in html template
 
     """
     Adding everything to DB if its new
