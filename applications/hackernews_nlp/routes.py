@@ -40,7 +40,7 @@ def populate_api():
             topic_label = TopicLabel(raw_txt=news_txt[i],
                                      title=titles[i],
                                      date=datetime.today(),
-                                     standard_ml_label=nb_final_labels[i],
+                                     standard_ml_label=lr_final_labels[i],
                                      )
 
             db.session.add(topic_label)
