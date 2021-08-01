@@ -58,7 +58,6 @@ oauthlib==3.1.0
 opt-einsum==3.3.0
 pandas==1.2.4
 Pillow==8.2.0
-pkg-resources==0.0.0
 plotly==4.14.3
 protobuf==3.15.8
 psycopg2==2.8.6
@@ -81,11 +80,6 @@ scipy==1.6.3
 six==1.15.0
 soupsieve==2.2.1
 SQLAlchemy==1.4.12
-tensorboard==2.5.0
-tensorboard-data-server==0.6.0
-tensorboard-plugin-wit==1.8.0
-tensorflow==2.4.1
-tensorflow-estimator==2.4.0
 termcolor==1.1.0
 threadpoolctl==2.1.0
 tqdm==4.60.0

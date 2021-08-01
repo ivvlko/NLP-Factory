@@ -26,17 +26,13 @@ def populate_api():
     cleaned_text = clean_text(news_txt)
     cleaned_from_stopwords = remove_stopwords(cleaned_text)
     lr_final_labels = label_news(cleaned_from_stopwords, logistic_regression_predictor)
-    list_of_dicts = [{'text': news_txt[i],
-                      'title': titles[i],
-                      'pred': lr_final_labels[i]
-                      } for i in range(len(lr_final_labels))] # Object to be displayed in html template
 
     """
     Adding everything to DB if its new
     """
     for i in range(len(news_txt)):
-        q = db.session.query(TopicLabel).filter(TopicLabel.raw_txt == news_txt[i])
-        if not db.session.query(q.exists()).scalar():
+        exists = db.session.query(TopicLabel).filter_by(raw_txt=news_txt[i]).first() is not None
+        if not exists:
             topic_label = TopicLabel(raw_txt=news_txt[i],
                                      title=titles[i],
                                      date=datetime.today(),
@@ -45,9 +41,10 @@ def populate_api():
 
             db.session.add(topic_label)
             db.session.commit()
+
     print(f'Scheduler execution successful at {datetime.now()}')
 
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=populate_api, trigger='interval', seconds=60)
+scheduler.add_job(func=populate_api, trigger='interval', seconds=300)
 scheduler.start()

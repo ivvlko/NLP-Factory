@@ -63,7 +63,7 @@ def update_heatmap_with_accuracy(hidden_trigger):
     fig.update_layout(plot_bgcolor='black', showlegend=False)
     fig.update_layout(title=f'Confusion Matrix', paper_bgcolor='black',
                       title_font_color="skyblue")
-    fig.update_xaxes(showgrid=False,  color="skyblue")
+    fig.update_xaxes(title='Predicted Label',showgrid=False,  color="skyblue")
     fig.update_yaxes(title='Correct Label', color="skyblue", showgrid=False)
     return fig
 
