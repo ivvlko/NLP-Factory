@@ -16,7 +16,8 @@ layout = html.Div(children=[
             html.Div(id='wrapper', children=[
 
                 html.Div(id='distribution_container', children=[
-                    html.Label(id='range-label', htmlFor='date_range', children=[html.H3('Date Range:  ')]),
+                    html.Label(id='range-label', htmlFor='date_range', children=[html.H3('Date Range:  ')],
+                               style={'display': 'flex', 'flex-basis': 'auto'}),
                     dcc.DatePickerRange(
                         id='date_range',
                         start_date=datetime.today() - dt.timedelta(days=3),
@@ -29,7 +30,8 @@ layout = html.Div(children=[
         ], width=6),
         dbc.Col([
             html.Div(id='wordscloud_container', children=[
-                html.Label(htmlFor='dropdown_words', children=[html.H3('Label: ')], style={'display': 'flex'}),
+                html.Label(htmlFor='dropdown_words', children=[html.H3('Label: ')],
+                           style={'display': 'flex', 'flex-basis': 'auto'}),
                 dcc.Dropdown(id='dropdown_words',
                              options=[{'label': 'web/mobile', 'value': 'web/mobile'},
                                       {'label': 'AI/Data Science', 'value': 'AI/Data Science'},
